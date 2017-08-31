@@ -1,20 +1,23 @@
-## Interface: 60000
-## Title: _|cffCCCC88DevPad|r
-## Notes: Notepad for Lua scripts and mini-addons.
-## Author: Saiket
-## Version: 5.0.0.1
-## X-Date: 2012-07-14
-## X-Category: Development Tools
-## X-License: GPLv3
-## X-Email: saiket.wow@gmail.com
-## X-Website: http://sites.google.com/site/wowsaiket/Add-Ons/DevPad
-## X-Feedback: http://code.google.com/p/wow-saiket/issues/list?can=1&q=AddOn:DevPad
-## X-WoWI-ID: 19403
-## X-Curse-Project-ID: devpad
-## X-Localizations: enUS
-## X-CompatibleLocales: deDE, enCN, enTW, enUS, esES, esMX, frFR, koKR, ptBR, ptPT, ruRU, zhCN, zhTW
-## SavedVariables: _DevPadOptions
-## OptionalDeps: _Dev, Ace3
+# _DevPad has most recently been tested against:
+#   Version 7.3.0 (24920) (Release x64)
+#   Aug 28 2017
+
+# The interface number can be learned with:
+#   /dump select( 4, GetBuildInfo() )
+## Interface:             70200
+## Title:                 _|cffCCCC88DevPad|r
+## Notes:                 Notepad for Lua scripts and mini-addons.
+## Author:                Saiket
+## Version:               7.3.0.0
+## X-Date:                2017-08-30
+## X-Category:            Development Tools
+## X-License:             GPLv3
+## X-Website:             https://github.com/spiralofhope/_DevPad/
+## X-Feedback:            https://github.com/spiralofhope/_DevPad/issues/new
+## X-Localizations:       enUS
+## X-CompatibleLocales:   deDE, enCN, enTW, enUS, esES, esMX, frFR, koKR, ptBR, ptPT, ruRU, zhCN, zhTW
+## SavedVariables:        _DevPadOptions
+## OptionalDeps:          _Dev, Ace3
 
 Libs\LibStub\LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
