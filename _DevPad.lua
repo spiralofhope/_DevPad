@@ -4,6 +4,25 @@
   ****************************************************************************]]
 
 
+-- TODO - accept a table, and print it out nicely.
+function _DevPad_debug( text )
+  if _DevPad_options.debug then
+    print( '_DevPad - ' .. GetTime() .. ' - ' .. tostring( text ) )
+  end
+  return nil
+end
+
+function _DevPad_auto_indent_lua_scripts()
+  return _DevPad_options.auto_indent_lua_scripts
+end
+
+function _DevPad_tab_width()
+  return _DevPad_options.tab_width
+end
+
+
+
+
 local AddOnName, NS = ...;
 _DevPad = NS;
 
@@ -431,6 +450,7 @@ end
 --- Load saved variables and run auto-run scripts.
 function NS.Frame:ADDON_LOADED ( Event, AddOn )
 	if ( AddOn == AddOnName ) then
+    _DevPad_setup_options_pane()
 		self:UnregisterEvent( Event );
 		self[ Event ] = nil;
 
