@@ -7,16 +7,16 @@
 ## Interface:             70200
 ## Title:                 _|cffCCCC88DevPad|r
 ## Notes:                 Notepad for Lua scripts and mini-addons.
-## Author:                Saiket
-## Version:               7.3.0.0
-## X-Date:                2017-08-30
+## Author:                Saiket, spiralofhope
+## Version:               7.3.0.5
+## X-Date:                2017-09-04
 ## X-Category:            Development Tools
 ## X-License:             GPLv3
 ## X-Website:             https://github.com/spiralofhope/_DevPad/
 ## X-Feedback:            https://github.com/spiralofhope/_DevPad/issues/new
 ## X-Localizations:       enUS
 ## X-CompatibleLocales:   deDE, enCN, enTW, enUS, esES, esMX, frFR, koKR, ptBR, ptPT, ruRU, zhCN, zhTW
-## SavedVariables:        _DevPadOptions
+## SavedVariables:        _DevPadOptions, _DevPad_options
 ## OptionalDeps:          _Dev, Ace3
 
 Libs\LibStub\LibStub.lua
@@ -27,6 +27,7 @@ Libs\AceComm-3.0\AceComm-3.0.xml
 # See http://wow.curseforge.com/addons/devpad/localization/
 Locales\Locale-enUS.lua
 
+_DevPad.options.lua
 _DevPad.lua
 # Optional default scripts file
 _DevPad.DefaultScripts.lua
