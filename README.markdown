@@ -3,8 +3,8 @@
 An 
 [addon](http://blog.spiralofhope.com/?p=17845)
 for 
-[World of Warcraft](http://blog.spiralofhope.com/?p=2987).  
-A notepad for Lua scripts and mini-addons.
+[World of Warcraft](http://blog.spiralofhope.com/?p=2987), 
+a notepad for Lua scripts and mini-addons.
 
 NOTE:  This addon requires [_DevPad.GUI](https://github.com/spiralofhope/_DevPad.GUI)
 
