@@ -1,25 +1,5 @@
 -- TODO - implement the width meter
 
-do  --  Default options
-  _DevPad_options = 
-  _DevPad_options or {}
-
-  _DevPad_options.auto_indent_lua_scripts = 
-  _DevPad_options.auto_indent_lua_scripts or true
-
-  _DevPad_options.tab_width = 
-  _DevPad_options.tab_width or 2
-
-  _DevPad_options.debug = 
-  _DevPad_options.debug or false
-
---[[
-  _DevPad_options.colored_list = 
-  _DevPad_options.colored_list or false
-]]
-end
-
-
 
 
 function _DevPad_setup_options_pane()

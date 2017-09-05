@@ -4,6 +4,34 @@
   ****************************************************************************]]
 
 
+do  --  Default options
+  _DevPad_options = 
+  _DevPad_options or {}
+
+  _DevPad_options.auto_indent_lua_scripts = 
+  _DevPad_options.auto_indent_lua_scripts or true
+
+  _DevPad_options.tab_width = 
+  _DevPad_options.tab_width or 2
+
+  _DevPad_options.debug = 
+  _DevPad_options.debug or false
+
+--[[
+  _DevPad_options.font_size = 
+  _DevPad_options.font_size or 10
+  _DevPad_options.font_size = 5
+--]]
+
+--[[
+  _DevPad_options.colored_list = 
+  _DevPad_options.colored_list or false
+]]
+end
+
+
+
+
 -- TODO - accept a table, and print it out nicely.
 function _DevPad_debug( text )
   if _DevPad_options.debug then
@@ -19,6 +47,12 @@ end
 function _DevPad_tab_width()
   return _DevPad_options.tab_width
 end
+
+--[[
+function _DevPad_options_font_size()
+  return _DevPad_options.font_size
+end
+]]
 
 --[[
 function _DevPad_options_colored_list()
