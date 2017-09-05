@@ -41,12 +41,28 @@ See [_DevPad.GUI](https://github.com/spiralofhope/_DevPad.GUI)
 
 
 
-# Issues and suggestions
+# Problems and suggestions
 
 ([issues list](https://github.com/spiralofhope/_DevPad/issues))
 
+
+### Problems
+
 - If you seen an error, disable all addons but this one and re-test before creating an issue.
   -  If you have multiple addons installed, errors you think are for one addon may actually be for another.  No really, disable everything else.
-- Search for your issue before creating an issue.
-- Always report errors.
+- Search through [the issues list](https://github.com/spiralofhope/_DevPad/issues) before creating an issue.
+- Always quote errors.
   -  There are several helpful addons to catch errors.  Try something like TekErr ([github](https://github.com/TekNoLogic/tekErr) &middot;  [wowinterface](http://www.wowinterface.com/downloads/info6681) &middot; [curse](https://mods.curse.com/project/103101) &middot; [curseforge](https://www.curseforge.com/projects/103101/))
+- Do your best to give the exact steps you took to reproduce your problem.
+  -  If this is only an occasional or unpredictable problem, then you'll need to do your best to give your opinion.
+
+
+### Suggestions
+
+- I am a documentation guy, not a programmer.  It is unlikely I can make any large changes.
+- Describe your suggestion _really_ well.
+- Explain why you want your suggestion.
+  -  Do you _really really_ want it?
+  -  Do you _need_ it?
+  -  Are you currently doing something unusual or annoying which the feature would help simplify or make easier?
+- Explain why other users would agree with your suggestion.
