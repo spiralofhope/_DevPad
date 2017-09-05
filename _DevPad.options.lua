@@ -12,6 +12,11 @@ do  --  Default options
 
   _DevPad_options.debug = 
   _DevPad_options.debug or false
+
+--[[
+  _DevPad_options.colored_list = 
+  _DevPad_options.colored_list or false
+]]
 end
 
 
@@ -132,6 +137,27 @@ do  --  _DevPad_options.tab_width
 end
 
 
+
+space()
+
+
+
+do  --  _DevPad_options.colored_list
+  position = position + 1
+  local CheckButton
+  CheckButton = CreateFrame( 'CheckButton', '_DevPad_options.colored_list', _DevPadPanel, 'OptionsCheckButtonTemplate' )
+  CheckButton:SetPoint( 'TopLeft', 20, -20 * position )
+  getglobal( CheckButton:GetName() .. 'Text' ):SetText( 'Color list items' )
+  --CheckButton.tooltipText = ''
+  CheckButton:SetChecked( _DevPad_options.colored_list )
+  CheckButton:SetScript( 'OnClick', function( self )
+    if self:GetChecked()then
+      _DevPad_options.colored_list = true
+    else
+      _DevPad_options.colored_list = false
+    end
+  end)
+end
 
 
 space()
