@@ -2,15 +2,15 @@
 
 # _DevPad
 
-A 
-[World of Warcraft](http://blog.spiralofhope.com/?p=2987) 
-[addon](http://blog.spiralofhope.com/?p=17845).
+An 
+[addon](http://blog.spiralofhope.com/?p=17845)
+for 
+[World of Warcraft](http://blog.spiralofhope.com/?p=2987).
 
 A notepad for Lua scripts and mini-addons.
 
 A fork of 
-saiket's
-[_DevPad](https://github.com/spiralofhope/_DevPad).
+[saiket's _DevPad](https://github.com/Saiket/wow-saiket/_DevPad).
 
 The load-on-demand GUI component is 
 [_DevPad.GUI](https://github.com/spiralofhope/_DevPad.GUI)
