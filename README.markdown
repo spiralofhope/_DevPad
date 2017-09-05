@@ -11,7 +11,7 @@ saiket's
 [_DevPad](https://github.com/spiralofhope/_DevPad).
 
 The load-on-demand GUI component is 
-[_DevPad.GUI](https://github.com/Saiket/wow-saiket/tree/master/_DevPad.GUI)
+[_DevPad.GUI](https://github.com/spiralofhope/_DevPad.GUI)
 
 [source code](https://github.com/spiralofhope/_DevPad)
  · [home page](http://blog.spiralofhope.com/?p=17397)
@@ -33,13 +33,13 @@ The load-on-demand GUI component is
 
 # Installation
 
-See [_DevPad.GUI](https://github.com/Saiket/wow-saiket/tree/master/_DevPad.GUI)
+See [_DevPad.GUI](https://github.com/spiralofhope/_DevPad.GUI)
 
 
 
 # Configuration / Usage
 
-See [_DevPad.GUI](https://github.com/Saiket/wow-saiket/tree/master/_DevPad.GUI)
+See [_DevPad.GUI](https://github.com/spiralofhope/_DevPad.GUI)
 
 
 
@@ -51,10 +51,10 @@ See [_DevPad.GUI](https://github.com/Saiket/wow-saiket/tree/master/_DevPad.GUI)
   -  If you have multiple addons installed, errors you think are for one addon may actually be for another.  No really, disable everything else.
 - Search for your issue before creating an issue.
 - Always report errors.
-  -  There are several helpful addons to catch errors.  Try something like [TekErr](http://www.wowinterface.com/downloads/info6681).
+  -  There are several helpful addons to catch errors.  Try something like TekErr ([github](https://github.com/TekNoLogic/tekErr) &middot;  [wowinterface](http://www.wowinterface.com/downloads/info6681) &middot; [curse](https://mods.curse.com/project/103101) &middot; [curseforge](https://www.curseforge.com/projects/103101/))
 
 
 
 # Old versions
 
-- [saiket's fork on github](https://github.com/Saiket/wow-saiket/tree/master/_DevPad)
+- [the original _DevPad](https://github.com/Saiket/wow-saiket/_DevPad), made by saiket
