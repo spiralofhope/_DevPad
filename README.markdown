@@ -1,3 +1,5 @@
+**NOTE:  This addon requires [_DevPad.GUI](https://github.com/spiralofhope/_DevPad.GUI)**
+
 # _DevPad
 
 A 
