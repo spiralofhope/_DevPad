@@ -4,7 +4,7 @@
 
 # The interface number can be learned with:
 #   /dump select( 4, GetBuildInfo() )
-## Interface:             70200
+## Interface:             70300
 ## Title:                 _|cffCCCC88DevPad|r
 ## Notes:                 Notepad for Lua scripts and mini-addons.
 ## Author:                Saiket, spiralofhope
