@@ -6,6 +6,11 @@
 
 # 7.3 series
 
+## 7.3.2.0
+
+- TOC bump
+
+
 ## 7.3.0.6
 
 - Tinkered with #14 - Change the font of the main list
