@@ -463,7 +463,7 @@ do
 			return;
 		end
 
-		PlaySound( "Glyph_MinorCreate" );
+		--PlaySound(SOUNDKIT.GLYPH_MINOR_CREATE);
 		local SafeName = Object._Name:gsub( "[|\r\n]", SafeNameReplacements );
 		self.Print( self.L.RECEIVE_MESSAGE_FORMAT:format( Author, SafeName ) );
 		if ( not ReopenPrinted and not ( self.GUI and self.GUI.List:IsVisible() ) ) then
