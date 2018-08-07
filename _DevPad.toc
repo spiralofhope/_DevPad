@@ -1,6 +1,6 @@
 # _DevPad has most recently been tested against:
 #   Version 8.0.1 (27219) (Release x64)
-#   Aug 5 2018
+#   Jul 30 2018
 
 # The interface number can be learned with:
 #   /dump select( 4, GetBuildInfo() )
@@ -8,8 +8,8 @@
 ## Title:                 _|cffCCCC88DevPad|r
 ## Notes:                 Notepad for Lua scripts and mini-addons.
 ## Author:                Saiket, spiralofhope
-## Version:               7.3.2.0
-## X-Date:                2018-05-08
+## Version:               8.0.1.1
+## X-Date:                2018-08-07
 ## X-Category:            Development Tools
 ## X-License:             GPLv3
 ## X-Website:             https://github.com/spiralofhope/_DevPad/
