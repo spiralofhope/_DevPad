@@ -6,11 +6,11 @@
 
 -- See http://wow.curseforge.com/addons/devpad/localization/enUS/
 select( 2, ... ).L = setmetatable( {
-	EXAMPLE = "Example Script",
-	IMPORTERS = "Importers",
-	PRINT_FORMAT = "_|cffcccc88DevPad|r: %s",
-	README = "Instruction Manual",
-	README_TEXT = [=[--- A short guide to _DevPad's features.
+  EXAMPLE = "Example Script",
+  IMPORTERS = "Importers",
+  PRINT_FORMAT = "_|cffcccc88DevPad|r: %s",
+  README = "Instruction Manual",
+  README_TEXT = [=[--- A short guide to _DevPad's features.
 
   *Many thanks to Mud's wonderful Hack mod for inspiration!*
 
@@ -55,18 +55,18 @@ _DevPad lets you write notes, scripts, and mini addons in-game.  The following s
   * Run other scripts like this: `_DevPad:FindScripts( "NamePattern" )( ... );` or `_DevPad( "Path", "to", "script" )( ... );`
   * See `_DevPad/_DevPad.lua` for documentation on manipulating scripts and folders programatically.
 ]=],
-	RECEIVE_MESSAGE_FORMAT = "You have received a script or folder from |cffffffff%s|r called |cff808080“%s”|r.",
-	RECEIVE_MESSAGE_REOPEN = "Open your _|cffcccc88DevPad|r to save or discard it.",
-	SLASH_GUIERROR_FORMAT = "Couldn't load |cff808080“_DevPad.GUI”|r: %s.",
-	SLASH_RUN_AMBIGUOUS_FORMAT = "Multiple matches found for |cff808080“%s”|r; Running script |cff808080“%s”|r.",
-	SLASH_RUN_MISSING_FORMAT = "Couldn't find script named |cff808080“%s”|r.",
+  RECEIVE_MESSAGE_FORMAT = "You have received a script or folder from |cffffffff%s|r called |cff808080“%s”|r.",
+  RECEIVE_MESSAGE_REOPEN = "Open your _|cffcccc88DevPad|r to save or discard it.",
+  SLASH_GUIERROR_FORMAT = "Couldn't load |cff808080“_DevPad.GUI”|r: %s.",
+  SLASH_RUN_AMBIGUOUS_FORMAT = "Multiple matches found for |cff808080“%s”|r; Running script |cff808080“%s”|r.",
+  SLASH_RUN_MISSING_FORMAT = "Couldn't find script named |cff808080“%s”|r.",
 }, {
-	__index = function ( self, Key )
-		if ( Key ~= nil ) then
-			rawset( self, Key, Key );
-			return Key;
-		end
-	end;
+  __index = function ( self, Key )
+    if ( Key ~= nil ) then
+      rawset( self, Key, Key );
+      return Key;
+    end
+  end;
 } );
 
 
