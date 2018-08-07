@@ -4,6 +4,20 @@
 
 
 
+# 8.0 series
+
+## 8.0.1.2
+
+- Fixed the changelog.
+
+
+## 8.0.1.1
+
+- Fixed issue #26 - added ability to add links to scripts
+  -  Thanks to GitHub/casualshammy
+
+
+
 # 7.3 series
 
 ## 7.3.2.0

@@ -8,7 +8,7 @@
 ## Title:                 _|cffCCCC88DevPad|r
 ## Notes:                 Notepad for Lua scripts and mini-addons.
 ## Author:                Saiket, spiralofhope
-## Version:               8.0.1.1
+## Version:               8.0.1.2
 ## X-Date:                2018-08-07
 ## X-Category:            Development Tools
 ## X-License:             GPLv3
