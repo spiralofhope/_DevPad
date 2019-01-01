@@ -1,23 +1,28 @@
 # _DevPad has most recently been tested against:
-#   Version 8.0.1 (27219) (Release x64)
-#   Jul 30 2018
+#   Version 8.1.0 (28833) (Release x64)
+#   Dec 19 2018
 
 # The interface number can be learned with:
 #   /dump select( 4, GetBuildInfo() )
-## Interface:             80000
+## Interface:             80100
 ## Title:                 _|cffCCCC88DevPad|r
 ## Notes:                 Notepad for Lua scripts and mini-addons.
 ## Author:                Saiket, spiralofhope
-## Version:               8.0.1.2
-## X-Date:                2018-08-07
-## X-Category:            Development Tools
-## X-License:             GPLv3
+## Version:               8.1.0.0
+## X-Date:                2018-12-31
 ## X-Website:             https://github.com/spiralofhope/_DevPad/
 ## X-Feedback:            https://github.com/spiralofhope/_DevPad/issues/new
+
+## SavedVariables:        _DevPadOptions, _DevPad_options
+## DefaultState:          enabled
+## OptionalDeps:          _Dev, Ace3
+
+## X-Category:            Development Tools
+## X-License:             GPLv3
 ## X-Localizations:       enUS
 ## X-CompatibleLocales:   deDE, enCN, enTW, enUS, esES, esMX, frFR, koKR, ptBR, ptPT, ruRU, zhCN, zhTW
-## SavedVariables:        _DevPadOptions, _DevPad_options
-## OptionalDeps:          _Dev, Ace3
+
+
 
 Libs\LibStub\LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
