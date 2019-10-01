@@ -12,22 +12,22 @@ local L = _DevPad.L;
 
 --- Settings table compatible with Folder:Unpack used when no saved variables are found.
 -- Note: Don't use tabs in script text fields!
-_DevPad.DefaultScripts = { Class = "Folder"; Name = "ROOT";
-  { Class = "Script"; Name = L.README;
+_DevPad.DefaultScripts = { Class = 'Folder'; Name = 'ROOT';
+  { Class = 'Script'; Name = L.README;
 		Text = L.README_TEXT;
 	},
-	{ Class = "Folder"; Name = L.IMPORTERS;
-		{ Class = "Script"; Name = "Hack"; Lua = true;
+	{ Class = 'Folder'; Name = L.IMPORTERS;
+		{ Class = 'Script'; Name = 'Hack'; Lua = true;
 			Text = [=[
 --- Run with Hack enabled to transfer all settings to _DevPad.
 -- Hack books transfer as folders.
 -- NOTE: You must replace script references to Hack yourself!
---   Ex) Hack.Run("Page") > _DevPad:FindScripts("Page")()
+--   Ex) Hack.Run('Page') > _DevPad:FindScripts('Page')()
 
-local DB = assert( HackDB, "Hack saved variables not found." );
-local FolderClass, ScriptClass = _DevPad:GetClass( "Folder" ), _DevPad:GetClass( "Script" );
+local DB = assert( HackDB, 'Hack saved variables not found.' );
+local FolderClass, ScriptClass = _DevPad:GetClass( 'Folder' ), _DevPad:GetClass( 'Script' );
 local Hack = FolderClass:New();
-Hack:SetName( "Hack Import" );
+Hack:SetName( 'Hack Import' );
 for _, BookData in ipairs( DB.books ) do
   local Book = FolderClass:New();
   Book:SetName( BookData.name );
@@ -43,14 +43,14 @@ for _, BookData in ipairs( DB.books ) do
 end
 return _DevPad.FolderRoot:Insert( Hack );]=];
 		},
-		{ Class = "Script"; Name = "TinyPad"; Lua = true;
+		{ Class = 'Script'; Name = 'TinyPad'; Lua = true;
 			Text = [=[
 --- Run with TinyPad enabled to transfer all settings to _DevPad.
 
-local DB = assert( TinyPadPages, "TinyPad saved variables not found." );
-local ScriptClass = _DevPad:GetClass( "Script" );
-local TinyPad = _DevPad:GetClass( "Folder" ):New();
-TinyPad:SetName( "TinyPad Import" );
+local DB = assert( TinyPadPages, 'TinyPad saved variables not found.' );
+local ScriptClass = _DevPad:GetClass( 'Script' );
+local TinyPad = _DevPad:GetClass( 'Folder' ):New();
+TinyPad:SetName( 'TinyPad Import' );
 for Index, Text in ipairs( DB ) do
   local Script = ScriptClass:New();
   Script:SetName( ( "Page %d" ):format( Index ) );
@@ -60,18 +60,18 @@ for Index, Text in ipairs( DB ) do
 end
 return _DevPad.FolderRoot:Insert( TinyPad );]=];
 		},
-		{ Class = "Script"; Name = "WowLua"; Lua = true;
+		{ Class = 'Script'; Name = 'WowLua'; Lua = true;
 			Text = [=[
 --- Run with WowLua loaded to transfer all settings to _DevPad.
--- _DevPad doesn't support script "locking"; All imported scripts will be writable.
+-- _DevPad doesn't support script 'locking'; All imported scripts will be writable.
 
-if ( IsAddOnLoadOnDemand( "WowLua" ) ) then
-  LoadAddOn( "WowLua" ); -- In case AddonLoader is installed
+if ( IsAddOnLoadOnDemand( 'WowLua' ) ) then
+  LoadAddOn( 'WowLua' ); -- In case AddonLoader is installed
 end
-local DB = assert( WowLua_DB, "WowLua saved variables not found." );
-local ScriptClass = _DevPad:GetClass( "Script" );
-local WowLua = _DevPad:GetClass( "Folder" ):New();
-WowLua:SetName( "WowLua Import" );
+local DB = assert( WowLua_DB, 'WowLua saved variables not found.' );
+local ScriptClass = _DevPad:GetClass( 'Script' );
+local WowLua = _DevPad:GetClass( 'Folder' ):New();
+WowLua:SetName( 'WowLua Import' );
 for _, PageData in ipairs( DB.pages ) do
   local Script = ScriptClass:New();
   Script:SetName( PageData.name );
@@ -84,15 +84,15 @@ return _DevPad.FolderRoot:Insert( WowLua );]=];
 	},
 
 
-	{ Class = "Script"; }, -- Spacer
-	{ Class = "Script"; Name = L.EXAMPLE; Lua = true; AutoRun = true;
+	{ Class = 'Script'; }, -- Spacer
+	{ Class = 'Script'; Name = L.EXAMPLE; Lua = true; AutoRun = true;
 		Text = [=[
 --- A simple example script demonstrating library usage by changing the default macro window's font.
 
 local NS = ...; --- First arg is always the table representing this script.
 -- Any extra parameters are optionally passed in by the caller.
 
--- This same table is used even if the script is called more than once, so its contents can be used to keep track of state between calls.  Key names prefixed with a single underscore character (like "._Name") are used internally by _DevPad.
+-- This same table is used even if the script is called more than once, so its contents can be used to keep track of state between calls.  Key names prefixed with a single underscore character (like '._Name') are used internally by _DevPad.
 
 
 
@@ -108,10 +108,10 @@ NS.Loaded = true;
 
 
 
--- Fetch the "AddOnInit" script contained in the "Libs" folder.
-local AddOnInit = _DevPad( "Libs", "AddOnInit" );
+-- Fetch the 'AddOnInit' script contained in the 'Libs' folder.
+local AddOnInit = _DevPad( 'Libs', 'AddOnInit' );
 -- This script object is like the "NS" variable above, but used by AddOnInit.  Another way to get a reference to AddOnInit is by searching, like this:
---   local AddOnInit = _DevPad:FindScripts( "AddOnInit" )
+--   local AddOnInit = _DevPad:FindScripts( 'AddOnInit' )
 -- In either case, AddOnInit may be nil if that script isn't found.
 
 AddOnInit(); -- Runs the script, allowing it to initialize its table.
@@ -121,11 +121,11 @@ AddOnInit(); -- Runs the script, allowing it to initialize its table.
 
 
 -- With AddOnInit loaded, we can register this function to run once Blizzard's MacroUI addon finishes loading.  If Blizzard_MacroUI is already loaded, the function gets run immediately.
-AddOnInit:Register( "Blizzard_MacroUI", function ()
+AddOnInit:Register( 'Blizzard_MacroUI', function ()
     -- At this point, Blizzard_MacroUI and its saved variables are already loaded.
     
     -- Since our custom font is in the separate addon _DevPad.GUI, we must wait for that to load too.
-    AddOnInit:Register( "_DevPad.GUI", function ()
+    AddOnInit:Register( '_DevPad.GUI', function ()
         -- At this point, both Blizzard_MacroUI and _DevPad.GUI are loaded.
         
         -- Set the macro window text to use _DevPad's editor font.
@@ -136,8 +136,8 @@ end );
 
 -- Hopefully this example helps illustrate how multiple scripts can interact with each other, and how scripts can easily manipulate addons other than _DevPad.]=];
 	},
-	{ Class = "Folder"; Name = "Libs";
-		{ Class = "Script"; Name = "AddOnInit"; Lua = true;
+	{ Class = 'Folder'; Name = 'Libs';
+		{ Class = 'Script'; Name = 'AddOnInit'; Lua = true;
 			Text = [=[
 --- API to register a script to run when its target addon loads.
 local lib = ...;
@@ -146,8 +146,8 @@ if ( lib.Register ) then -- Library already initialized
 end
 
 
-local Frame = CreateFrame( "Frame" );
-Frame:SetScript( "OnEvent", _DevPad.Frame.OnEvent );
+local Frame = CreateFrame( 'Frame' );
+Frame:SetScript( 'OnEvent', _DevPad.Frame.OnEvent );
 
 local AddOnInitializers = {};
 
@@ -161,7 +161,7 @@ local function InitializeAddOn ( Name )
     and select( 2, IsAddOnLoaded( Name ) ) -- Returns false if addon is currently loading
   ) then
     AddOnInitializers[ Name ] = nil;
-    if ( type( Initializer ) == "table" ) then
+    if ( type( Initializer ) == 'table' ) then
       for _, Script in ipairs( Initializer ) do
         _DevPad.SafeCall( Script ); -- Don't break execution if one initializer fails
       end
@@ -176,7 +176,7 @@ end
 function Frame:ADDON_LOADED ( _, AddOn )
   return InitializeAddOn( AddOn );
 end
-Frame:RegisterEvent( "ADDON_LOADED" );
+Frame:RegisterEvent( 'ADDON_LOADED' );
 
 --- Register a function to run when an addon loads.
 -- @return True if loaded immediately.
@@ -185,7 +185,7 @@ function lib:Register ( Name, Initializer )
     Name = Name:upper();
     local OldInitializer = AddOnInitializers[ Name ];
     if ( OldInitializer ) then -- Put multiple initializers in a table
-      if ( type( OldInitializer ) ~= "table" ) then
+      if ( type( OldInitializer ) ~= 'table' ) then
         AddOnInitializers[ Name ] = { OldInitializer };
       end
       tinsert( AddOnInitializers[ Name ], Initializer );
@@ -201,35 +201,35 @@ end
 function lib:IsLoadable ( Name )
   local Enabled, Loadable, Reason = select( 4, GetAddOnInfo( Name ) );
   if ( IsAddOnLoadOnDemand( Name ) ) then
-    if ( Reason == "DISABLED" ) then
+    if ( Reason == 'DISABLED' ) then
       return true; -- Can be loaded after enabling
     end
-  elseif ( Enabled and Reason == "INSECURE" ) then
+  elseif ( Enabled and Reason == 'INSECURE' ) then
     return true; -- Still loadable despite what GetAddOnInfo claims
   end
   return Loadable;
 end
 return lib;]=];
 		},
-		{ Class = "Script"; Name = "RegisterForSave"; Lua = true;
+		{ Class = 'Script'; Name = 'RegisterForSave'; Lua = true;
 			Text = [=[
 --- Provides an API for scripts to save data between sessions.
--- @usage local Value = _DevPad( "Libs", "RegisterForSave" )( "VariableName"[, DefaultValue] );
---   Set new values to _G[ "VariableName" ] and they will be saved on logout.
+-- @usage local Value = _DevPad( 'Libs', 'RegisterForSave' )( 'VariableName'[, DefaultValue] );
+--   Set new values to _G[ 'VariableName' ] and they will be saved on logout.
 local lib = ...;
 if ( lib.Register ) then
   return lib.Register( ... );
 end
-local AceSerializer = LibStub( "AceSerializer-3.0" );
+local AceSerializer = LibStub( 'AceSerializer-3.0' );
 
 
-local DATA_NAME = "RegisterForSave Data";
+local DATA_NAME = 'RegisterForSave Data';
 --- @return The data folder found in the same folder as this lib, or a new one.
 local function GetData ()
   local Data = lib:GetRelObject( true, DATA_NAME );
   if ( not Data ) then
     -- Add data folder just after this library
-    Data = _DevPad:GetClass( "Folder" ):New();
+    Data = _DevPad:GetClass( 'Folder' ):New();
     lib._Parent:Insert( Data, lib:GetIndex() + 1 );
     Data:SetName( DATA_NAME );
     Data:SetClosed( true );
@@ -245,8 +245,8 @@ local Active = {}; --- Active global variable names
 -- @param ...  Optional default value to initialize to if no previous value is found.
 -- @return Value loaded from history, if any.
 function lib:Register ( Name, ... )
-  assert( type( Name ) == "string", "Name must be a string." );
-  assert( not Active[ Name ], "Name is already registered." );
+  assert( type( Name ) == 'string', 'Name must be a string.' );
+  assert( not Active[ Name ], 'Name is already registered.' );
   Active[ Name ] = true;
   local Script = GetData():GetRelObject( Name );
   if ( Script ) then
@@ -280,7 +280,7 @@ do
       else
         local Script = Data:GetRelObject( Name );
         if ( not Script ) then
-          Script = _DevPad:GetClass( "Script" ):New();
+          Script = _DevPad:GetClass( 'Script' ):New();
           Script:SetName( Name );
           Script:SetLua( false );
           Data:Insert( Script );

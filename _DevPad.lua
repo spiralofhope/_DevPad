@@ -65,14 +65,14 @@ end
 local AddOnName, NS = ...;
 _DevPad = NS;
 
-NS.Frame = CreateFrame( "Frame" );
-NS.Callbacks = LibStub( "CallbackHandler-1.0" ):New( NS );
+NS.Frame = CreateFrame( 'Frame' );
+NS.Callbacks = LibStub( 'CallbackHandler-1.0' ):New( NS );
 NS.ReceiveQueue = {};
-NS.ReceiveIgnored = { [ UnitName( "player" ):lower() ] = true; };
+NS.ReceiveIgnored = { [ UnitName( 'player' ):lower() ] = true; };
 
-local COMM_PREFIX = "_DP";
+local COMM_PREFIX = '_DP';
 
-local AceSerializer, AceComm = LibStub( "AceSerializer-3.0" ), LibStub( "AceComm-3.0" );
+local AceSerializer, AceComm = LibStub( 'AceSerializer-3.0' ), LibStub( 'AceComm-3.0' );
 
 
 
@@ -105,10 +105,10 @@ do
   local ObjectMeta = { __index = {}; };
   --- @return True if Name changed.
   function ObjectMeta.__index:SetName ( Name )
-    Name = type( Name ) == "string" and Name or "";
+    Name = type( Name ) == 'string' and Name or '';
     if ( self._Name ~= Name ) then
       self._Name = Name;
-      NS.Callbacks:Fire( "ObjectSetName", self );
+      NS.Callbacks:Fire( 'ObjectSetName', self );
       return true;
     end
   end
@@ -116,7 +116,7 @@ do
   -- @see AceComm-3.0:SendCommMessage
   -- @return Number of bytes being transmitted.
   function ObjectMeta.__index:Send ( ... )
-    local Data = AceSerializer:Serialize( "Object", self:Pack() );
+    local Data = AceSerializer:Serialize( 'Object', self:Pack() );
     AceComm:SendCommMessage( COMM_PREFIX, Data, ... );
     return #Data;
   end
@@ -159,7 +159,7 @@ do
       if ( self._Parent ) then
         return self._Parent:GetRelObject( ... );
       end
-    elseif ( self._Class == "Folder" ) then
+    elseif ( self._Class == 'Folder' ) then
       for _, Child in ipairs( self ) do
         if ( Name == Child._Name ) then
           return Child:GetRelObject( ... );
@@ -196,11 +196,11 @@ end
 
 
 do
-  local FolderMeta = RegisterClass( "Folder" );
+  local FolderMeta = RegisterClass( 'Folder' );
   do
     --- @return Last descendant of Object.
     local function GetLastDescendant ( Object )
-      while ( Object._Class == "Folder" and #Object > 0 ) do
+      while ( Object._Class == 'Folder' and #Object > 0 ) do
         Object = Object[ #Object ];
       end
       return Object;
@@ -212,7 +212,7 @@ do
       Index = Index or ( self ~= Object._Parent and #self + 1 or #self );
       if ( ( Object._Parent ~= self or Index ~= Object:GetIndex() ) -- Moved
         and not ( Object == self
-          or ( Object._Class == "Folder" and Object:Contains( self ) ) ) -- Not circular
+          or ( Object._Class == 'Folder' and Object:Contains( self ) ) ) -- Not circular
       ) then
         if ( Object._Parent ) then
           FireEvents = false; -- Don't fire a FolderRemoved event before inserts
@@ -228,7 +228,7 @@ do
         Previous._Next, Next._Previous = Object, ObjectLast;
         ObjectLast._Next, Object._Previous = Next, Previous;
 
-        NS.Callbacks:Fire( "FolderInsert", self, Object, Index );
+        NS.Callbacks:Fire( 'FolderInsert', self, Object, Index );
         return true;
       end
     end
@@ -236,14 +236,14 @@ do
     function FolderMeta.__index:Remove ( Object )
       if ( Object._Parent == self ) then
         tremove( self, assert( Object:GetIndex(),
-          "Child not found in parent folder." ) )._Parent = nil;
+          'Child not found in parent folder.' ) )._Parent = nil;
         local ObjectLast = GetLastDescendant( Object );
         local Previous, Next = Object._Previous, ObjectLast._Next;
         Previous._Next, Next._Previous = Next, Previous;
         ObjectLast._Next, Object._Previous = Object, ObjectLast;
 
         if ( FireEvents ) then
-          NS.Callbacks:Fire( "FolderRemove", self, Object );
+          NS.Callbacks:Fire( 'FolderRemove', self, Object );
         end
         return true;
       end
@@ -254,7 +254,7 @@ do
     Closed = not not Closed;
     if ( self._Closed ~= Closed ) then
       self._Closed = Closed;
-      NS.Callbacks:Fire( "FolderSetClosed", self );
+      NS.Callbacks:Fire( 'FolderSetClosed', self );
       return true;
     end
   end
@@ -296,7 +296,7 @@ do
   end
   --- Synchronizes this folder with values from Folder:Pack.
   function FolderMeta.__index:Unpack ( Settings )
-    assert( Settings.Class == self._Class, "Unpack class mismatch." );
+    assert( Settings.Class == self._Class, 'Unpack class mismatch.' );
     self:SetName( Settings.Name );
     self:SetClosed( Settings.Closed );
     -- Remove old children
@@ -304,7 +304,7 @@ do
       self:Remove( self[ Index ] );
     end
     for Index, Child in ipairs( Settings ) do
-      if ( type( Child ) == "table" ) then
+      if ( type( Child ) == 'table' ) then
         local Class = NS:GetClass( Child.Class );
         if ( Class ) then
           local Object = Class:New();
@@ -326,14 +326,14 @@ end
 
 
 do
-  local ScriptMeta = RegisterClass( "Script" );
+  local ScriptMeta = RegisterClass( 'Script' );
   --- Sets the script text and flags it for recompilation.
   -- @return True if Text changed.
   function ScriptMeta.__index:SetText ( Text )
-    Text = type( Text ) == "string" and Text or "";
+    Text = type( Text ) == 'string' and Text or '';
     if ( self._Text ~= Text ) then
       self._Text, self._TextChanged = Text, true;
-      NS.Callbacks:Fire( "ScriptSetText", self );
+      NS.Callbacks:Fire( 'ScriptSetText', self );
       return true;
     end
   end
@@ -343,7 +343,7 @@ do
     AutoRun = not not AutoRun;
     if ( self._AutoRun ~= AutoRun ) then
       self._AutoRun = AutoRun;
-      NS.Callbacks:Fire( "ScriptSetAutoRun", self );
+      NS.Callbacks:Fire( 'ScriptSetAutoRun', self );
       return true;
     end
   end
@@ -353,7 +353,7 @@ do
     Lua = not not Lua;
     if ( self._Lua ~= Lua ) then
       self._Lua = Lua;
-      NS.Callbacks:Fire( "ScriptSetLua", self );
+      NS.Callbacks:Fire( 'ScriptSetLua', self );
       return true;
     end
   end
@@ -386,7 +386,7 @@ do
   end
   --- Synchronizes this script with values from Script:Pack.
   function ScriptMeta.__index:Unpack ( Settings )
-    assert( Settings.Class == self._Class, "Unpack class mismatch." );
+    assert( Settings.Class == self._Class, 'Unpack class mismatch.' );
     self:SetName( Settings.Name );
     self:SetText( Settings.Text );
     self:SetAutoRun( Settings.AutoRun );
@@ -410,7 +410,7 @@ end
 -- @param ...  Extra args passed after script to Callback.
 function NS:IterateScripts ( Folder, Callback, ... )
   for Child in Folder:IterateChildren() do
-    if ( Child._Class == "Script" ) then
+    if ( Child._Class == 'Script' ) then
       ( Child[ Callback ] or Callback )( Child, ... );
     end
   end
@@ -424,7 +424,7 @@ do
   function NS:FindScripts ( Pattern, Folder )
     wipe( Matches );
     for Child in ( Folder or self.FolderRoot ):IterateChildren() do
-      if ( Child._Class == "Script" and Child._Name:match( Pattern ) ) then
+      if ( Child._Class == 'Script' and Child._Name:match( Pattern ) ) then
         Matches[ #Matches + 1 ] = Child;
       end
     end
@@ -451,7 +451,7 @@ do
       return;
     end
     local Success, MessageType, Settings = AceSerializer:Deserialize( Text );
-    if ( not Success or MessageType ~= "Object" or type( Settings ) ~= "table" ) then
+    if ( not Success or MessageType ~= 'Object' or type( Settings ) ~= 'table' ) then
       return;
     end
     local Class = self:GetClass( Settings.Class );
@@ -473,17 +473,17 @@ do
 
     Object._Channel, Object._Author = Channel, Author;
     -- Sanitize scripts
-    if ( Object._Class == "Script" ) then
+    if ( Object._Class == 'Script' ) then
       Object:SetAutoRun( false );
-    elseif ( Object._Class == "Folder" ) then
+    elseif ( Object._Class == 'Folder' ) then
       for Child in Object:IterateChildren() do
-        if ( Child._Class == "Script" ) then
+        if ( Child._Class == 'Script' ) then
           Child:SetAutoRun( false );
         end
       end
     end
     tinsert( self.ReceiveQueue, Object );
-    self.Callbacks:Fire( "ObjectReceived", Object );
+    self.Callbacks:Fire( 'ObjectReceived', Object );
   end
 end
 --- Load saved variables and run auto-run scripts.
@@ -500,11 +500,11 @@ function NS.Frame:ADDON_LOADED ( Event, AddOn )
     end
     AceComm.RegisterComm( NS, COMM_PREFIX );
     -- Replace settings last in case of errors loading them
-    self:RegisterEvent( "PLAYER_LOGOUT" );
+    self:RegisterEvent( 'PLAYER_LOGOUT' );
     --_DevPadOptions = nil; -- GC options
     NS.DefaultScripts = nil;
     for Object in NS.FolderRoot:IterateChildren() do
-      if ( Object._Class == "Script" and Object._AutoRun ) then
+      if ( Object._Class == 'Script' and Object._AutoRun ) then
         NS.SafeCall( Object );
       end
     end
@@ -527,8 +527,8 @@ end
 --- Slash command handler to run scripts by name pattern.
 function NS.SlashCommand ( Input )
   local Pattern = Input:trim();
-  if ( Pattern == "" ) then
-    local Loaded, ErrorReason = LoadAddOn( "_DevPad.GUI" );
+  if ( Pattern == '' ) then
+    local Loaded, ErrorReason = LoadAddOn( '_DevPad.GUI' );
     if ( Loaded ) then
       local List = NS.GUI.List;
       if ( List:IsVisible() ) then
@@ -538,7 +538,7 @@ function NS.SlashCommand ( Input )
       end
     else
       NS.Print( NS.L.SLASH_GUIERROR_FORMAT:format(
-        _G[ "ADDON_"..ErrorReason ] ), RED_FONT_COLOR );
+        _G[ 'ADDON_'..ErrorReason ] ), RED_FONT_COLOR );
     end
   else
     local Script1, Script2 = NS:FindScripts( Pattern );
@@ -557,9 +557,9 @@ end
 
 
 setmetatable( NS, { __call = NS.GetAbsObject; } );
-NS.FolderRoot = NS:GetClass( "Folder" ):New();
+NS.FolderRoot = NS:GetClass( 'Folder' ):New();
 
-NS.Frame:SetScript( "OnEvent", NS.Frame.OnEvent );
-NS.Frame:RegisterEvent( "ADDON_LOADED" );
+NS.Frame:SetScript( 'OnEvent', NS.Frame.OnEvent );
+NS.Frame:RegisterEvent( 'ADDON_LOADED' );
 
-SlashCmdList[ "_DEVPAD" ] = NS.SlashCommand;
+SlashCmdList[ '_DEVPAD' ] = NS.SlashCommand;
