@@ -7,6 +7,12 @@
 # 8.x - Battle for Azeroth (BfA)
 
 
+## retail 8.3.7.1, classic 1.13.1
+
+- Tested for Shadowlands beta 9.0.2.36086
+- Updated Ace libraries.
+
+
 ## retail 8.3.0.0, classic 1.13.0
 
 - TOC bump
