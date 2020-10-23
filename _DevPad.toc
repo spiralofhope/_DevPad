@@ -47,5 +47,12 @@ Locales\Locale-enUS.lua
 
 _DevPad.options.lua
 _DevPad.lua
-# Optional default scripts file
+
+
+#
+# Optional modules:
+# You can disable any of these by prepending a numbersign.
+#
+
+# Default scripts and folders:
 _DevPad.DefaultScripts.lua
