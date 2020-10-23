@@ -21,6 +21,7 @@ NOTE:  This addon requires [_DevPad.GUI](https://github.com/spiralofhope/_DevPad
 
 - This is A fork of 
 [saiket's _DevPad](https://github.com/Saiket/wow-saiket/tree/master/_DevPad).
+  -  DevPad was inspired by the AddOn [Hack](https://www.wowinterface.com/downloads/info11101-Hack.html), by *Mud*.
 - I am a documentation guy, not a programmer.  It is unlikely I can make any large changes.
   -  If you are a developer, I am happy to:
      -  Accept GitHub pull requests.
@@ -38,6 +39,59 @@ See [_DevPad.GUI](https://github.com/spiralofhope/_DevPad.GUI)
 # Configuration / Usage
 
 See [_DevPad.GUI](https://github.com/spiralofhope/_DevPad.GUI)
+
+When you first install _DevPad, it includes an instruction manual script with a quick reference to using the AddOn.
+
+
+## List Window
+
+- Reorganize scripts and folders by dragging and dropping.
+- Rename any folder or script by double clicking.
+- Set scripts to auto-run by clicking the arrow buttons next to their names in the list.
+  -  They will then run right after _DevPad's `ADDON_LOADED` event in the listed order.
+- Search script contents using Lua patterns in the search bar below the list.
+
+
+## Editor Window
+
+- Adjust font and font size, toggle Lua mode per-script, and access other editing tools with buttons at the editor's top-right.
+- Scripts in Lua mode appear syntax-highlighted
+  -  Courtesy of [ForAllIndentsAndPurposes](https://www.wowinterface.com/downloads/info4895-ForAllIndentsAndPurposes.html), by *krka*.
+  -  .. and reveal [UI Escape Sequences](https://wow.gamepedia.com/UI_escape_sequences) for editing directly.
+- Without Lua mode, chat links in scripts become clickable, and text coloring tools appear at the editor's top-right.
+- Use line numbers to navigate code.  Click a line number to select that line.
+- There is no save button; script text is saved as you type.
+- Undo and redo changes with the left and right arrow buttons at the top-right of the editor.
+- Use familiar keyboard shortcuts to manipulate text:
+  -  `control-z` / `control-shift-z` - Undo and redo.
+  -  `control-g`                     - Go to line number dialog.
+  -  `control-f`                     - Focus the list's search edit box.
+  -  `F3` / `shift-F3`               - Jump to next/previous search result.
+
+
+## Usage
+
+There are two ways to open the list window: by keybind, or with the `/devpad` or `/pad` slash commands.
+
+There are also two ways to run scripts as Lua code.
+
+- With a script open, click the `play` button at the top-left of the editor window.
+- Run them by name if you include a Lua pattern with the slash command, like so: `/devpad Example Script`.
+  -  You can use the slash command in a macro to bind keys to _DevPad scripts.
+
+
+## Sending and Receiving
+
+You can send scripts, even entire folders, to others with the `trumpet` icon at the top of the list window.  When you receive something, you'll hear a sound and see a chat message prompting you to open your _DevPad.  Once opened, you can choose to keep or discard the new item.  Remember to always inspect what you receive from others before you run it!
+
+
+## Notes
+
+- For help writing scripts, see the default "Instruction Manual" and "Example Script" pages.
+- Some _DevPad modules can be disabled.  See the bottom of `_DevPad/_DevPad.toc` and `_DevPad.GUI/_DevPad.GUI.toc`.
+  -  `_DevPad.GUI/Libs/ForAllIndentsAndPurposes`: Syntax highlighting.
+- By default, _DevPad comes with an "Importers" folder containing scripts to import pages from other notepad mods.
+  -  WowLua, Hack, and TinyPad are currently supported; see the comments at the tops of these scripts for specific usage instructions.
 
 
 
